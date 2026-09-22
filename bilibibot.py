@@ -1,21 +1,3 @@
-import sys
-import subprocess
-
-# ---------- 1. 自动检查并补全第三方 Python 依赖 ----------
-REQUIRED_PACKAGES = ["discord.py", "yt-dlp", "python-dotenv", "PyNaCl", "static-ffmpeg"]
-
-def install_requirements():
-    for pkg in REQUIRED_PACKAGES:
-        try:
-            mod_name = pkg.replace("-", "_")
-            __import__(mod_name)
-        except ImportError:
-            print(f"检测到缺少依赖 {pkg}，正在自动安装...")
-            subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-
-install_requirements()
-
-# ---------- 3. 业务代码 ----------
 import os
 import re
 import asyncio
@@ -356,3 +338,4 @@ if __name__ == "__main__":
         raise SystemExit("请在 .env 文件中设置 DISCORD_TOKEN")
     bot.run(TOKEN)
 
+    
