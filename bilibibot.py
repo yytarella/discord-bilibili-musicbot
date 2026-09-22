@@ -15,10 +15,6 @@ def install_requirements():
 
 install_requirements()
 
-# ---------- 2. 自动配置 FFmpeg ----------
-import static_ffmpeg
-static_ffmpeg.add_paths()
-
 # ---------- 3. 业务代码 ----------
 import os
 import re
